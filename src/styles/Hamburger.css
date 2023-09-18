@@ -1,0 +1,62 @@
+.menu-btn {
+    position: relative;
+    z-index: 5;
+    background: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 1.7rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+}
+
+.menu-icon,
+.menu-icon::after,
+.menu-icon::before {
+    position: absolute;
+    height: 3px;
+    width: 35px;
+    background-color: aliceblue;
+    transition: all 0.4s ease;
+}
+
+.menu-icon::after,
+.menu-icon::before {
+    content: '';
+}
+
+.menu-icon::before {
+    top: -10px;
+}
+
+.menu-icon::after {
+    top: 9px;
+    height: 3.1px;
+}
+
+.icon_clicked {
+    background-color: transparent;
+}
+
+.icon_clicked::before {
+    transform: translateY(9px) rotate(-225deg);
+}
+
+.icon_clicked::after {
+    transform: translateY(-10px) rotate(225deg);
+}
+
+
+
+@media screen and (max-width:575px) {
+    .menu-btn {
+        display: flex;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .menu-btn {
+        display: flex;
+    }
+}

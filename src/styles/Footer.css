@@ -1,0 +1,35 @@
+.container6 {
+    display: flex;
+    position: absolute;
+    background-color: transparent;
+    padding: 10px 120px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.container6 ul{
+    display: flex;
+    gap:20px; 
+    align-items: center;
+    list-style-type: none;
+}
+.container6 a{
+    color: aliceblue;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.container6 h5{
+    color: aliceblue;
+}
+.container6 img{
+    transition-property: transform;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+.container6 img:hover{
+    transform: scale(1.1);
+}
+.more-ul a:hover{
+    text-decoration: underline;
+}

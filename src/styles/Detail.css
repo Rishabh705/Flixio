@@ -1,0 +1,57 @@
+.detail-cont{
+    height: 100vh;
+}
+.detail-cont2{
+    background-color: rgb(47, 45, 74,0.8);
+    height: 100%;
+    padding: 0 120px;
+    border: 2px solid red;
+}
+
+.detail-cont3{
+    margin-top: 250px;
+    width: 600px;
+    height: 361px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.detail-cont3 h1{
+    font-family: 'Stalinist One','Courier New', Courier, monospace;
+    font-size: 32px;
+    color: aliceblue;
+}
+
+.detail-cont4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.detail-cont4 ul{
+    display: flex;
+    list-style-type: none;
+    color: aliceblue;
+    gap: 20px;
+    font-size: 18px;
+}
+.imdb h4, .detail-cont3 p{
+    color: aliceblue;
+}
+.imdb h4{
+    font-size: 16px;
+}
+.detail-cont3 p{
+    font-size: 24px;
+}
+.imdb{
+    width: 54px;
+    height: 27px;
+    background-color: #A88F0B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
