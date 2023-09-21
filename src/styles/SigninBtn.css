@@ -1,6 +1,7 @@
 .loginbtn {
   border: transparent;
   border-radius: 2rem;
+  color:aliceblue;
   font-size: 1.2rem;
   width: 100%;
   height: 100%;
@@ -8,9 +9,7 @@
   background-color: transparent;
 }
 
-.loginbtn:hover{
-  background-color: #6ed4e9;
-}
+
 /*profile icon*/
 .user-profile {
   margin-right: 1rem;

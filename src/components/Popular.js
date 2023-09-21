@@ -1,6 +1,7 @@
 import React from 'react'
 import { getPopular } from '../utils/api';
 import { Link } from 'react-router-dom';
+
 export default function Popular({ type }) {
     const [results, setResults] = React.useState([])
     const [loading, setLoading] = React.useState(false)
@@ -20,11 +21,10 @@ export default function Popular({ type }) {
 
         loadPopular()
     }, [type])
-    console.log(results)
     const cards = results.map(item => {
         // distinguishing between tv and movie as there is no cinema-type key in object ;) 
         const isMovie = 'original_title' in item && 'release_date' in item;
-        const url = isMovie ? "search/movie" : "search/tv";
+        const url = isMovie ? "movie" : "tv";
         const title = isMovie ? item.original_title : item.original_name;
         return (
             <Link key={item.id} to={`${url}/${item.id}`}>

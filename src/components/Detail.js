@@ -23,14 +23,9 @@ export default function Detail() {
     }
     loadPopular()
   }, [params.id])
-  console.log(results)
-  // if (!loading) {
-  //   const genres = results.genres.map(item => {
-  //     return (
-  //       <li key={item.id}>{item.name}</li>
-  //     )
-  //   })
-  // }
+  const isMovie = 'original_title' in results && 'release_date' in results;
+  const date = isMovie ? results.release_date : results.first_air_date;
+  console.log(results);
   return (
     <div className="detail-cont" style={{
       backgroundImage: `url(https://image.tmdb.org/t/p/original${results.backdrop_path})`,
@@ -40,20 +35,23 @@ export default function Detail() {
         <div className="detail-cont3">{/* small cont */}
           <h1>{results.title}</h1>
           <div className="detail-cont4">
-            {/* {genres} */}
             <ul>
-              {/* <li>{results.release_date.substring(0, 4)}</li> */}
-              <li>2018</li>
-              <li>Action</li>
-              <li>Crime</li>
-              <li>Thriller</li>
+              <li>{!loading && date ? date.substring(0, 4) : <></>}</li>
+              {!loading ?
+                results?.genres?.map(item => {
+                  return (
+                    <li key={item.id}>{item.name}</li>
+                  )
+                })
+                :
+                <></>
+              }
             </ul>
             <div className="imdb">
               <h4>7.9</h4>
             </div>
           </div>
-          {/* <p>{results.overview}</p>*/}
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis dolorum, dolor nihil ratione eos velit officia! Totam quos cum, saepe, repudiandae facere assumenda nostrum rerum suscipit dolore facilis neque aperiam!</p>
+          <p>{!loading && results.overview ? results.overview : "No data available"}</p>
         </div>
       </div>
     </div>

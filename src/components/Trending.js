@@ -20,10 +20,9 @@ export default function Trending({window}) {
 
         loadTrending()
     }, [window])
-    console.log(results)
     const cards = results.map(item => {
         const len = Object.keys(item).length
-        const url = len === 13 ? "search/tv" : "search/movie"
+        const url = len === 13 ? "tv" : "movie"
         const title = item.original_name || item.original_title;
         return (
             <Link key={item.id} to={`${url}/${item.id}`}>

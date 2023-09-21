@@ -55,14 +55,17 @@ main {
 
 .container4::-webkit-scrollbar {
     width: 2px;
+    height: 5px;
 }
 
 .container4::-webkit-scrollbar-track {
-    background: #d7d7d7;
+    background: none;
+    border-radius: 5px;
 }
 
 .container4::-webkit-scrollbar-thumb {
     background: #888;
+    border-radius: 5px;
 }
 
 .container4::-webkit-scrollbar-thumb:hover {
