@@ -25,10 +25,83 @@
 .headings{
     display: flex;
     justify-content: space-between;
-    height: 40px;
 }
 .head{
     display: flex;
     flex-flow: column;
     justify-content: space-between;
+}
+@media screen and (max-width:575px){
+    .card2{
+        height: 150px;
+    }
+    .card-text{
+        gap: 5px;
+        height: 150px;
+        overflow: hidden;
+    }
+    .head h4{
+        font-size: 0.8rem;
+    }
+    .head h5{
+        font-size: 0.7rem;
+    }
+    .bio p{
+        font-size: 0.7rem;
+    }
+    .rating{
+        display: none;
+    }
+}
+@media screen and (min-width:576px){
+    .card2{
+        height: 180px;
+    }
+    .card-text{
+        gap: 5px;
+        height: 180px;
+        overflow: hidden;
+    }
+    .head h4{
+        font-size: 0.8rem;
+    }
+    .head h5{
+        font-size: 0.7rem;
+    }
+    .bio p{
+        font-size: 0.7rem;
+    }
+    .rating{
+        display: none;
+    }
+}
+@media screen and (min-width:768px){
+    .card2{
+        height: 200px;
+    }
+    .card-text{
+        gap: 10px;
+        height: 200px;
+    }
+    .head h4{
+        font-size: 0.9rem;
+    }
+    .head h5{
+        font-size: 0.8rem;
+    }
+    .bio p{
+        font-size: 0.7rem;
+    }
+    .rating{
+        display: block;
+    }
+}
+@media screen and (min-width:992px) {
+    .card2{
+        height: 225px;
+    }
+    .card-text{
+        gap: 15px;
+        height: 225px;
+    }
 }

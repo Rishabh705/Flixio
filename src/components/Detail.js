@@ -48,7 +48,7 @@ export default function Detail() {
               }
             </ul>
             <div className="imdb">
-              <h4>7.9</h4>
+              <h4>{results.vote_average}</h4>
             </div>
           </div>
           <p>{!loading && results.overview ? results.overview : "No data available"}</p>

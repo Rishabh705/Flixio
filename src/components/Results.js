@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../styles/Results.css'
 import Rating from './Rating';
+import SFContext from '../contexts/SFContext';
 export default function Results({ results }) {
     const navigate = useNavigate()
     const handleClick = (id, url) => {
-        navigate(`/${url}/${id}`);
+        navigate(`/${url}/${id}`) //replace the current url with this url
     };
-
-    const cards = results.map(item => {
+    const {sortOrder, sortType} = useContext(SFContext)
+     // Sorting logic based on sortType and sortOrder
+    const displayedCards = [...results].sort((a, b) => {
+        if (sortOrder === 'asc') {
+            if (a.sortType < b.sortType) return -1;
+            if (a.sortType > b.sortType) return 1;
+            return 0;
+        } else {
+            if (a.sortType > b.sortType) return -1;
+            if (a.sortType < b.sortType) return 1;
+            return 0;
+        }
+    });
+    const cards = displayedCards.map(item => {
         // distinguishing between tv and movie as there is no cinema-type key in object ;) 
         const isMovie = 'original_title' in item && 'release_date' in item;
         const url = isMovie ? "movie" : "tv";
@@ -28,10 +41,10 @@ export default function Results({ results }) {
                             <h4>{title}</h4>
                             <h5>{date}</h5>
                         </div>
-                        <Rating popularity={item.popularity} />
+                        <Rating popularity={item.vote_average} />
                     </div>
                     <div className="bio">
-                        {item.overview ? item.overview : "No data available"}
+                        <p>{item.overview ? item.overview : "No data available"}</p>
                     </div>
                 </div>
             </div>

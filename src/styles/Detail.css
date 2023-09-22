@@ -11,7 +11,6 @@
 
 .detail-cont3{
     width: 600px;
-    height: 361px;
     padding-top: 5rem;
     gap: 10px;
     display: flex;
@@ -25,7 +24,8 @@
 }
 
 .detail-cont4 {
-    display: flex;
+    display:flex;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -36,23 +36,109 @@
     gap: 20px;
     font-size: 18px;
 }
-.imdb h4, .detail-cont3 p{
+.detail-cont3 p{
     color: aliceblue;
+    font-size: 22px;
 }
 .imdb h4{
-    font-size: 16px;
+    font-size: 0.8rem;
+    color: black;
 }
-.detail-cont3 p{
-    font-size: 24px;
-}
+
 .imdb{
-    width: 54px;
-    height: 27px;
-    background-color: #A88F0B;
+    width: 48px;
+    height: 24px;
+    background-color: #f1dc65;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 3px;
     font-weight: 600;
 }
 
+
+@media screen and (max-width:575px){
+    .detail-cont2{
+        padding: 0 32px;
+    }
+    .detail-cont3 h1 {
+        font-size: 22px;
+    }
+    .detail-cont4 ul{
+        font-size: 0.8rem;
+        gap: 10px;
+    }
+    .detail-cont3{
+        width: 395px;
+        gap: 15px;
+    }
+    .detail-cont3 p{
+        font-size: 15px;
+    }
+    .imdb{
+        width: 40px;
+        height: 20px;
+    }
+    .imdb h4{
+        font-size: 0.7rem;
+    }
+}
+@media screen and (min-width:576px){
+    .detail-cont2{
+        padding: 0 64px;
+    }
+    .detail-cont3 h1 {
+        font-size: 22px;
+    }
+    .detail-cont3{
+        width: 400px;
+    }
+    .detail-cont4 ul{
+        font-size: 0.9rem;
+        gap: 10px;
+    }
+    .detail-cont3 p{
+        font-size: 18px;
+    }
+    .imdb{
+        width: 40px;
+        height: 20px;
+    }
+    .imdb h4{
+        font-size: 0.7rem;
+    }
+}
+@media screen and (min-width:768px){
+    .detail-cont3 h1 {
+        font-size: 28px;
+    }
+    .detail-cont3{
+        width: 600px;
+    }
+    .detail-cont4 ul{
+        font-size: 1rem;
+        gap: 15px;
+    }
+    .detail-cont3 p{
+        font-size: 1.1rem;
+    }
+    .imdb{
+        width: 48px;
+        height: 24px;
+    }
+    .imdb h4{
+        font-size: 0.8rem;
+    } 
+}
+@media screen and (min-width:992px){
+    .detail-cont2{
+        padding: 0 120px;
+    }
+    .detail-cont3 h1 {
+        font-size: 32px;
+    }
+    .detail-cont4 ul{
+        font-size: 1rem;
+        gap: 20px;
+    }
+}

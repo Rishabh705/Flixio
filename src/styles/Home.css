@@ -35,7 +35,7 @@ main {
 }
 
 .container2 p:nth-child(1) {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-family: 'Krona One','Courier New', Courier, monospace;
 }
 
@@ -49,7 +49,6 @@ main {
     gap: 10px;
     height: 340px;
     width: 100%;
-    padding: 0 15px;
     overflow-x: scroll;
 }
 
@@ -118,67 +117,77 @@ main {
 }
 
 
-/* @media screen and (max-width:576px){
+@media screen and (max-width:575px){
     .container2{
-        padding-top: 7rem;
+        padding: 0 32px 64px 32px;
+        gap: 32px;
+        justify-content: flex-end;
     }
     .container2 p:nth-child(1) {
+        font-size: 1.4rem;
+    }
+    
+    .container2 p:nth-child(3) {
+        font-size: 0.85rem;
+    }   
+    main{
+        padding: 64px 32px;
+    } 
+    .cont5 h2{
         font-size: 1.3rem;
     }
-    
-    .container2 p:nth-child(4) {
-        font-size: 1.1rem;
-    }
-    .container2 h2 {
-        font-size: 3.5rem;
-    }
-    
 }
 @media screen and (min-width:576px){
     .container2{
-        padding-top: 8rem;
+        padding: 0 64px;
+        gap: 48px;
+        justify-content: center;
     }
     .container2 p:nth-child(1) {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     
-    .container2 p:nth-child(4) {
-        font-size: 1.1rem;
+    .container2 p:nth-child(3) {
+        font-size: 0.85rem;
+    } 
+    main{
+        padding: 64px 64px;
+    } 
+    .cont5 h2{
+        font-size: 1.3rem;
     }
-    .container2 h2 {
-        font-size: 5rem;
-    }
-    
 }
 @media screen and (min-width:768px){
     .container2{
-        padding-top: 5rem;
+        padding: 0 64px;
+        gap: 48px;
+        justify-content: center;
     }
     .container2 p:nth-child(1) {
-        font-size: 1.7rem;
+        font-size: 1.4rem;
     }
     
-    .container2 p:nth-child(4) {
-        font-size: 1.2rem;
-    }
-    .container2 h2 {
-        font-size: 6rem;
-    }
-    
+    .container2 p:nth-child(3) {
+        font-size: 0.9rem;
+    }    
 }
 @media screen and (min-width:992px){
     .container2{
-        padding-top: 5rem;
+        padding: 0 120px;
+        gap: 48px;
+        justify-content: center;
     }
     .container2 p:nth-child(1) {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
     }
     
-    .container2 p:nth-child(4) {
-        font-size: 1.2rem;
+    .container2 p:nth-child(3) {
+        font-size: 0.95rem;
+    } 
+    main{
+        padding: 64px 120px;
+    } 
+    .cont5 h2{
+        font-size: 1.3rem;
     }
-    .container2 h2 {
-        font-size: 3.5rem;
-    }
-    
-} */
+}

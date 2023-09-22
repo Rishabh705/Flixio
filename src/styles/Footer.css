@@ -34,3 +34,27 @@
 .more-ul a:hover{
     text-decoration: underline;
 }
+@media screen and (max-width:575px) {
+    .container6{
+        padding: 10px 32px;
+    }
+    .container6 ul, h5{
+        font-size: 0.8rem;
+    }
+}
+@media screen and (min-width:576px) {
+    .container6{
+        padding: 10px 64px;
+    }
+    .container6 ul, h5{
+        font-size: 0.8rem;
+    }
+}
+@media screen and (min-width:992px) {
+    .container6{
+        padding: 10px 120px;
+    }
+    .container6 ul, h5{
+        font-size: 0.9rem;
+    }
+}
