@@ -1,41 +1,33 @@
-import React from 'react'
-import '../styles/Hamburger.css'
+import React, { useEffect, useState } from 'react';
+import '../styles/Hamburger.css';
+
 export default function Hamburger() {
-    const handleClick = (e) => {
-        const menu_btn = document.querySelector(".menu-btn")
-        const menu_icon = document.querySelector(".menu-icon")
-        const navbar_nav = document.querySelector(".navbar-nav")
-        const navlist = document.querySelector(".navlist")
-        if (window.innerWidth < 768) {
-            if (menu_btn.style.display !== 'none') {
-                if (navbar_nav.style.display !== "none") {
-                    if (e.target.className !== "navlist") {
-                        menu_icon.classList.remove("icon_clicked", "icon_clicked::before", "icon_clicked::after")
-                        navbar_nav.style.display = "none"
-                    }
-                }
-                else {
-                    if (e.target.className === "menu-btn" || e.target.className === "menu-icon") {
-                        navbar_nav.style.display = "flex"
-                        navlist.style.animation="showMenu 0.2s ease-in-out forwards"
-                        menu_icon.classList.add("icon_clicked", "icon_clicked::before", "icon_clicked::after")
-                    }
-                }
-            }
+    useEffect(()=>{
+        const menu_bar = document.getElementById("menu-bar")
+        const nav = document.getElementById("navbar-nav")
+        const navlist = document.getElementById("navlist-1")
+        const menu_bg = document.getElementById("menu-bg")
+        function menuOnClick() {
+            menu_bar.classList.toggle("change");
+            nav.classList.toggle("navbar-nav-show");
+            // navlist.classList.toggle("navlist-1-show");
+            console.log(navlist);
+            menu_bg.classList.toggle("change-bg");
         }
-    }
-    React.useEffect(() => {
-        if (window.innerWidth < 768) {
-            document.addEventListener("click", handleClick);
+        menu_bar.addEventListener("click",menuOnClick)
+        return function(){
+            menu_bar.removeEventListener("click",menuOnClick)
         }
-        //cleanup
-        return () => {
-            document.removeEventListener('click', handleClick)
-        }
-    }, [])
+    },[])
     return (
-        <div className="menu-btn">
-            <span className="menu-icon"></span>
+        <div className="btn-cont1">
+        <div id="menu">
+          <div id="menu-bar">
+            <div id="bar1" className="bar"></div>
+            <div id="bar2" className="bar"></div>
+            <div id="bar3" className="bar"></div>
+          </div>
         </div>
-    )
+      </div>
+    );
 }

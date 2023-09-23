@@ -2,7 +2,6 @@ import React from 'react'
 import '../styles/header.css'
 import { NavLink, Link } from 'react-router-dom'
 import Hamburger from './Hamburger'
-import SigninBtn from './SigninBtn'
 export default function Header() {
   return (
     <>
@@ -12,7 +11,7 @@ export default function Header() {
         </div>
         {/* Menu Button */}
         <Hamburger />
-        <nav className='navbar-nav'>
+        <nav className='navbar-nav' id='navbar-nav'>
           <ul className="navlist-1">
             <li>
               <div className="overlay"></div>
@@ -26,6 +25,7 @@ export default function Header() {
             <li className='signin-btn'><SigninBtn /></li> */}
           </ul>
         </nav>
+        <div className="menu-bg" id="menu-bg"></div>
       </div>
     </>
   )

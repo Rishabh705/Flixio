@@ -1,6 +1,5 @@
-.menu-btn {
+/* .btn-cont1 {
     position: relative;
-    z-index: 5;
     background: transparent;
     display: none;
     justify-content: center;
@@ -8,10 +7,24 @@
     width: 50px;
 }
 
+.menu-btn {
+    position: relative;
+    width: 45px;
+    height: 45px;
+}
+.check{
+    position: absolute;
+    z-index: 999;
+    opacity: 0;
+    width: 45px;
+    height: 45px;
+}
 .menu-icon,
 .menu-icon::after,
 .menu-icon::before {
     position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
     height: 3px;
     width: 35px;
     background-color: aliceblue;
@@ -24,41 +37,112 @@
 }
 
 .menu-icon::before {
-    top: -10px;
+    top: -9px;
 }
 
 .menu-icon::after {
-    top: 9px;
-    height: 3.1px;
+    top: 12px;
+}
+*/
+
+
+.btn-cont1 {
+    position: relative;
+    background: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
 }
 
-.icon_clicked {
-    background-color: transparent;
+
+#menu {
+    z-index: 2;
+    top: 30px;
 }
 
-.icon_clicked::before {
-    transform: translateY(9px) rotate(-225deg);
+#menu-bar {
+    width: 45px;
+    height: 40px;
+    cursor: pointer;
 }
 
-.icon_clicked::after {
-    transform: translateY(-10px) rotate(225deg);
+.bar {
+    height: 5px;
+    width: 100%;
+    background-color: #DC052D;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
 }
 
+#bar1 {
+    transform: translateY(-4px);
+}
 
+#bar3 {
+    transform: translateY(4px);
+}
+
+.menu-bg,
+#menu {
+    position: absolute;
+}
+.menu-bg {
+    top: 0px;
+    right: 30px;
+}
+
+.menu-bg {
+    z-index: 1;
+    width: 0;
+    height: 0;
+    margin: 30px 0 20px 20px;
+    background: radial-gradient(circle, #DC052D, #DC052D);
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+.change {
+    display: block;
+}
+
+.change .bar {
+    background-color: white;
+}
+
+.change #bar1 {
+    transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+    opacity: 0;
+}
+
+.change #bar3 {
+    transform: translateY(-6px) rotateZ(45deg);
+}
+
+.change-bg {
+    width: 450px;
+    height: 367px;
+    transform: translate(57%, -34%);
+}
 
 @media screen and (max-width:575px) {
-    .menu-btn {
+    .btn-cont1 {
         display: flex;
     }
 }
 
 @media screen and (min-width:576px) {
-    .menu-btn {
+    .btn-cont1 {
         display: flex;
     }
 }
+
 @media screen and (min-width:992px) {
-    .menu-btn {
+    .btn-cont1 {
         display: none;
     }
 }

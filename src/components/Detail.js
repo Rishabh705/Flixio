@@ -22,10 +22,10 @@ export default function Detail() {
       }
     }
     loadPopular()
-  }, [params.id])
-  const isMovie = 'original_title' in results && 'release_date' in results;
-  const date = isMovie ? results.release_date : results.first_air_date;
-  console.log(results);
+  }, [params.id,location.pathname])
+  const isMovie = 'original_title' in results && 'release_date' in results
+  const date = isMovie ? results.release_date : results.first_air_date
+  const title = isMovie ? results.original_title : results.original_name
   return (
     <div className="detail-cont" style={{
       backgroundImage: `url(https://image.tmdb.org/t/p/original${results.backdrop_path})`,
@@ -33,7 +33,7 @@ export default function Detail() {
     }}>
       <div className="detail-cont2">{/* opactiy */}
         <div className="detail-cont3">{/* small cont */}
-          <h1>{results.title}</h1>
+          <h1>{title}</h1>
           <div className="detail-cont4">
             <ul>
               <li>{!loading && date ? date.substring(0, 4) : <></>}</li>
@@ -48,7 +48,7 @@ export default function Detail() {
               }
             </ul>
             <div className="imdb">
-              <h4>{results.vote_average}</h4>
+              <h4>{!loading && results.vote_average ? parseFloat(results.vote_average).toFixed(1): <></>}</h4>
             </div>
           </div>
           <p>{!loading && results.overview ? results.overview : "No data available"}</p>

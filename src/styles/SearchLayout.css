@@ -13,13 +13,17 @@
     padding: 1rem 2rem;
     min-width: 20%;
     height: 260px;
-    display: flex;
+    display: none;
     flex-flow: column;
     position: relative;
     gap: 15px;
 }
 .show{
     z-index:2;
+    display: flex;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 0px 2px, rgba(190, 190, 190, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 .advanced-title hr{
     margin-top: 5px;
@@ -86,9 +90,6 @@
     .srchlcont1{
         padding: 7rem 32px 20px 32px;
     }
-    .advancedcont1{
-        display: none;
-    }
     .srchlcont3{
         width: 100%;
     }
@@ -99,9 +100,6 @@
 @media screen and (min-width:576px){
     .srchlcont1{
         padding: 7rem 64px 20px 64px;
-    }
-    .advancedcont1{
-        display: none;
     }
     .srchlcont3{
         width: 100%;
