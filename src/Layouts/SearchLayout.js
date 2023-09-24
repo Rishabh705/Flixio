@@ -21,10 +21,14 @@ export default function SearchLayout() {
     }
   }, [])
 
-  const changeSortOrder = (val) => {
+  const changeSortOrder = (order,type) => {
     dispacher({
       type: 'SET_SORT_ORDER',
-      payload: val,
+      payload: order,
+    })
+    dispacher({
+      type: 'SET_SORT_TYPE',
+      payload: type,
     })
   }
   return (
@@ -50,10 +54,10 @@ export default function SearchLayout() {
                   Title
                   <div className="buttons">
                     <div>
-                      <FaSortAmountDownAlt onClick={()=>changeSortOrder('title')} />
+                      <FaSortAmountDownAlt onClick={()=>changeSortOrder('asc','original_title')} />
                     </div>
                     <div>
-                      <FaSortAmountDown  onClick={()=>changeSortOrder('title')} />
+                      <FaSortAmountDown  onClick={()=>changeSortOrder('desc','original_title')} />
                     </div>
                   </div>
                 </li>
@@ -61,20 +65,20 @@ export default function SearchLayout() {
                   Popular
                   <div className="buttons">
                     <div>
-                      <FaSortAmountDownAlt  onClick={()=>changeSortOrder('popularity')} />
+                      <FaSortAmountDownAlt  onClick={()=>changeSortOrder('asc','popularity')} />
                     </div>
                     <div>
-                      <FaSortAmountDown  onClick={()=>changeSortOrder('popularity')} />
+                      <FaSortAmountDown  onClick={()=>changeSortOrder('desc','popularity')} />
                     </div>
                   </div>
                 </li>
                 <li>
                   Rating
                   <div className="buttons"><div>
-                    <FaSortAmountDownAlt  onClick={()=>changeSortOrder('vote_average')} />
+                    <FaSortAmountDownAlt  onClick={()=>changeSortOrder('asc','vote_average')} />
                   </div>
                     <div>
-                      <FaSortAmountDown  onClick={()=>changeSortOrder('vote_average')} />
+                      <FaSortAmountDown  onClick={()=>changeSortOrder('desc','vote_average')} />
                     </div>
                   </div>
                 </li>

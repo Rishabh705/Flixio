@@ -13,21 +13,91 @@ export default function Results({ results }) {
     };
     const [{ sortOrder, sortType }] = useSFStateValue();
 
-    console.log(sortOrder, sortType);
-
-
     // Sorting logic based on sortType and sortOrder
     const displayedCards = [...results].sort((a, b) => {
+
+        const AisMovie = 'original_title' in a && 'release_date' in a;
+        const BisMovie = 'original_title' in b && 'release_date' in b;
+
         if (sortOrder === 'asc') {
-            if (a[sortType] < b[sortType]) return -1;
-            if (a[sortType] > b[sortType]) return 1;
+            if (sortType == 'original_title') {
+                if (!AisMovie && BisMovie) {
+                    
+                    //as 'a' is tv show so here just compare original_name of 'a' and title of 'b'
+                    
+                    if (a['original_name'] < b[sortType]) return -1;
+                    if (a['original_name'] > b[sortType]) return 1;
+                }
+                else if (AisMovie && !BisMovie) {
+
+                    //as 'b' is tv show so here just compare original_name of 'b' and title of 'a'
+                    
+                    if (a[sortType] < b['original_name']) return -1;
+                    if (a[sortType] > b['original_name']) return 1;
+                }
+                else if (!AisMovie && !BisMovie) {
+                    
+                    //as 'a' and 'b'  are tv show so here just compare original_name of 'a' and 'b'
+
+                    if (a['original_name'] < b['original_name']) return -1;
+                    if (a['original_name'] > b['original_name']) return 1;
+                }
+                else {
+                    // if 'a' and 'b' are movie
+
+                    if (a[sortType] < b[sortType]) return -1;
+                    if (a[sortType] > b[sortType]) return 1;
+                }
+            }
+            else {
+
+                //for sortTypes other than 'title'
+                if (a[sortType] < b[sortType]) return -1;
+                if (a[sortType] > b[sortType]) return 1;
+            }
             return 0;
         } else {
-            if (a[sortType] > b[sortType]) return -1;
-            if (a[sortType] < b[sortType]) return 1;
+
+            if (sortType == 'original_title') {
+                if (!AisMovie && BisMovie) {
+
+                    //as 'a' is tv show so here just compare original_name of 'a' and title of 'b'
+
+                    if (a["original_name"] > b[sortType]) return -1;
+                    if (a["original_name"] < b[sortType]) return 1;
+                }
+                else if (AisMovie && !BisMovie) {
+
+                    //as 'b' is tv show so here just compare original_name of 'b' and title of 'a'
+
+                    if (a[sortType] > b["original_name"]) return -1;
+                    if (a[sortType] < b["original_name"]) return 1;
+                }
+                else if (!AisMovie && !BisMovie) {
+                    //as 'a' and 'b'  are tv show so here just compare original_name of 'a' and 'b'
+
+                    if (a["original_name"] > b["original_name"]) return -1;
+                    if (a["original_name"] < b["original_name"]) return 1;
+                }
+                else {
+                    // if 'a' and 'b' are movie
+
+                    if (a[sortType] > b[sortType]) return -1;
+                    if (a[sortType] < b[sortType]) return 1;
+                }
+            }
+            else {
+
+                //for sortTypes other than 'title'
+
+                if (a[sortType] > b[sortType]) return -1;
+                if (a[sortType] < b[sortType]) return 1;
+
+            }
             return 0;
         }
     });
+
     const cards = displayedCards.map(item => {
         // distinguishing between tv and movie as there is no cinema-type key in object ;) 
         const isMovie = 'original_title' in item && 'release_date' in item;
