@@ -2,22 +2,29 @@ import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../styles/Results.css'
 import Rating from './Rating';
-import SFContext from '../contexts/SFContext';
+import { useSFStateValue } from '../contexts/SFProvider';
+
+
+
 export default function Results({ results }) {
     const navigate = useNavigate()
     const handleClick = (id, url) => {
         navigate(`/${url}/${id}`) //replace the current url with this url
     };
-    const {sortOrder, sortType} = useContext(SFContext)
-     // Sorting logic based on sortType and sortOrder
+    const [{ sortOrder, sortType }] = useSFStateValue();
+
+    console.log(sortOrder, sortType);
+
+
+    // Sorting logic based on sortType and sortOrder
     const displayedCards = [...results].sort((a, b) => {
         if (sortOrder === 'asc') {
-            if (a.sortType < b.sortType) return -1;
-            if (a.sortType > b.sortType) return 1;
+            if (a[sortType] < b[sortType]) return -1;
+            if (a[sortType] > b[sortType]) return 1;
             return 0;
         } else {
-            if (a.sortType > b.sortType) return -1;
-            if (a.sortType < b.sortType) return 1;
+            if (a[sortType] > b[sortType]) return -1;
+            if (a[sortType] < b[sortType]) return 1;
             return 0;
         }
     });

@@ -12,7 +12,7 @@ export default function Header() {
         {/* Menu Button */}
         <Hamburger />
         <nav className='navbar-nav' id='navbar-nav'>
-          <ul className="navlist-1">
+          <ul className="navlist-1" id='navlist-1'>
             <li>
               <div className="overlay"></div>
               <NavLink to="/search/movie" end="true" className={({ isActive }) => isActive ? 'activate' : null}><span>Movies</span></NavLink>

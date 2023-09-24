@@ -105,6 +105,8 @@
 
 .change {
     display: block;
+    position: relative;
+    z-index: 3;
 }
 
 .change .bar {
