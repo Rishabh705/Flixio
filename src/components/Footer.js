@@ -15,7 +15,6 @@ export default function Footer() {
                 <li><a href="https://github.com/Rishabh705"><img src={github} alt="github" height={24} /></a></li>
                 <li><a href='https://www.linkedin.com/in/rishabh-singh-93b68223a'><img src={lin} alt="linkedin" height={25.4} /></a></li>
             </ul>
-            <h5>Crafted with passion by Rishabh</h5>
         </section>
 
     )
