@@ -29,8 +29,8 @@ export default function Home() {
           <div className="cont5">
             <h2><span className="beautify">Popular</span></h2>
             <div className="slider">
-              <h4 onClick={() => setType('tv')}>TV</h4>
-              <h4 onClick={() => setType('movie')}>Movies</h4>
+              <h4 className={type === 'tv' ? 'slider-activate' : ''} onClick={() => setType('tv')}>TV</h4>
+              <h4 className={type === 'movie' ? 'slider-activate' : ''} onClick={() => setType('movie')}>Movies</h4>
             </div>
           </div>
           <Popular type={type} />
@@ -39,8 +39,8 @@ export default function Home() {
           <div className="cont5">
             <h2><span className="beautify">Trending</span></h2>
             <div className="slider">
-              <h4 onClick={() => setTime_window('day')}>Today</h4>
-              <h4 onClick={() => setTime_window('week')}>This Week</h4>
+              <h4 className={time_window === 'day' ? 'slider-activate' : ''} onClick={() => setTime_window('day')}>Today</h4>
+              <h4 className={time_window === 'week' ? 'slider-activate' : ''} onClick={() => setTime_window('week')}>This Week</h4>
             </div>
           </div>
           <Trending window={time_window} />

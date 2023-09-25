@@ -99,7 +99,9 @@ main {
     cursor: pointer;
     border-bottom: 2px solid #dd3b50;
 }
-
+.slider-activate{
+    border-bottom: 2px solid #dd3b50;
+}
 .card {
     display: flex;
     height: 290px;
