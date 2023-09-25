@@ -29,7 +29,10 @@ export default function Detail() {
   return (
     <div className="detail-cont" style={{
       backgroundImage: `url(https://image.tmdb.org/t/p/original${results.backdrop_path})`,
-      backgroundSize: "cover"
+      backgroundSize: "cover",
+      // backgroundPosition: 'center center';
+      // backgroundAttachment: 'fixed'
+
     }}>
       <div className="detail-cont2">{/* opactiy */}
         <div className="detail-cont3">{/* small cont */}

@@ -2,41 +2,46 @@ import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../styles/Results.css'
 import Rating from './Rating';
-import { useSFStateValue } from '../contexts/SFProvider';
-
-
+import SFContext from '../contexts/SFContext';
 
 export default function Results({ results }) {
     const navigate = useNavigate()
     const handleClick = (id, url) => {
         navigate(`/${url}/${id}`) //replace the current url with this url
     };
-    const [{ sortOrder, sortType }] = useSFStateValue();
+    const { sort, filter } = useContext(SFContext)
 
-    // Sorting logic based on sortType and sortOrder
-    const displayedCards = [...results].sort((a, b) => {
+
+    //filtering logic based on filter type and filter range
+    const filteredResults = [...results].filter(item=> {
+    
+        return item[filter.type] >= filter.limits[0] && item[filter.type] <= filter.limits[1];
+    
+    })
+    // Sorting logic based on sort type and sort order
+    const displayedCards = filteredResults.sort((a, b) => {
 
         const AisMovie = 'original_title' in a && 'release_date' in a;
         const BisMovie = 'original_title' in b && 'release_date' in b;
 
-        if (sortOrder === 'asc') {
-            if (sortType == 'original_title') {
+        if (sort.order === 'asc') {
+            if (sort.type === 'original_title') {
                 if (!AisMovie && BisMovie) {
-                    
+
                     //as 'a' is tv show so here just compare original_name of 'a' and title of 'b'
-                    
-                    if (a['original_name'] < b[sortType]) return -1;
-                    if (a['original_name'] > b[sortType]) return 1;
+
+                    if (a['original_name'] < b[sort.type]) return -1;
+                    if (a['original_name'] > b[sort.type]) return 1;
                 }
                 else if (AisMovie && !BisMovie) {
 
                     //as 'b' is tv show so here just compare original_name of 'b' and title of 'a'
-                    
-                    if (a[sortType] < b['original_name']) return -1;
-                    if (a[sortType] > b['original_name']) return 1;
+
+                    if (a[sort.type] < b['original_name']) return -1;
+                    if (a[sort.type] > b['original_name']) return 1;
                 }
                 else if (!AisMovie && !BisMovie) {
-                    
+
                     //as 'a' and 'b'  are tv show so here just compare original_name of 'a' and 'b'
 
                     if (a['original_name'] < b['original_name']) return -1;
@@ -45,33 +50,33 @@ export default function Results({ results }) {
                 else {
                     // if 'a' and 'b' are movie
 
-                    if (a[sortType] < b[sortType]) return -1;
-                    if (a[sortType] > b[sortType]) return 1;
+                    if (a[sort.type] < b[sort.type]) return -1;
+                    if (a[sort.type] > b[sort.type]) return 1;
                 }
             }
             else {
 
-                //for sortTypes other than 'title'
-                if (a[sortType] < b[sortType]) return -1;
-                if (a[sortType] > b[sortType]) return 1;
+                //for sort.types other than 'title'
+                if (a[sort.type] < b[sort.type]) return -1;
+                if (a[sort.type] > b[sort.type]) return 1;
             }
             return 0;
         } else {
 
-            if (sortType == 'original_title') {
+            if (sort.type === 'original_title') {
                 if (!AisMovie && BisMovie) {
 
                     //as 'a' is tv show so here just compare original_name of 'a' and title of 'b'
 
-                    if (a["original_name"] > b[sortType]) return -1;
-                    if (a["original_name"] < b[sortType]) return 1;
+                    if (a["original_name"] > b[sort.type]) return -1;
+                    if (a["original_name"] < b[sort.type]) return 1;
                 }
                 else if (AisMovie && !BisMovie) {
 
                     //as 'b' is tv show so here just compare original_name of 'b' and title of 'a'
 
-                    if (a[sortType] > b["original_name"]) return -1;
-                    if (a[sortType] < b["original_name"]) return 1;
+                    if (a[sort.type] > b["original_name"]) return -1;
+                    if (a[sort.type] < b["original_name"]) return 1;
                 }
                 else if (!AisMovie && !BisMovie) {
                     //as 'a' and 'b'  are tv show so here just compare original_name of 'a' and 'b'
@@ -82,16 +87,16 @@ export default function Results({ results }) {
                 else {
                     // if 'a' and 'b' are movie
 
-                    if (a[sortType] > b[sortType]) return -1;
-                    if (a[sortType] < b[sortType]) return 1;
+                    if (a[sort.type] > b[sort.type]) return -1;
+                    if (a[sort.type] < b[sort.type]) return 1;
                 }
             }
             else {
 
-                //for sortTypes other than 'title'
+                //for sort.types other than 'title'
 
-                if (a[sortType] > b[sortType]) return -1;
-                if (a[sortType] < b[sortType]) return 1;
+                if (a[sort.type] > b[sort.type]) return -1;
+                if (a[sort.type] < b[sort.type]) return 1;
 
             }
             return 0;
@@ -130,7 +135,13 @@ export default function Results({ results }) {
 
     return (
         <>
-            {cards}
+            {cards.length > 0 ? (
+                <>
+                    {cards}
+                </>
+            ) : (
+                <h4 className='no-results'>Sorry... No results found.</h4>
+            )}
         </>
     )
 }

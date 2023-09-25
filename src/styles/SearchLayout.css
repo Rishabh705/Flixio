@@ -12,7 +12,7 @@
     background-color: #262626;
     padding: 1rem 2rem;
     min-width: 20%;
-    height: 260px;
+    height: 278px;
     display: none;
     flex-flow: column;
     position: relative;
@@ -45,10 +45,16 @@
     flex-flow: column;
 }
 
-.sortby li{
+.sortby li, .filterby li{
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+.filterby li{
+    flex-flow: column;
+}
+.MuiSlider-markLabel{
+    color: aliceblue;
 }
 .buttons{
     display: flex;

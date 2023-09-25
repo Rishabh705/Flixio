@@ -31,6 +31,11 @@
     flex-flow: column;
     justify-content: space-between;
 }
+
+.no-results{
+    color: aliceblue;
+    text-align: center;
+}
 @media screen and (max-width:575px){
     .card2{
         height: 150px;
