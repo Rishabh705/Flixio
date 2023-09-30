@@ -21,8 +21,6 @@ export default function Header() {
               <div className="overlay"></div>
               <NavLink to="/search/tv" end="true" className={({ isActive }) => isActive ? 'activate' : null}><span>TV</span></NavLink>
             </li>
-            {/* <div className="overlay"></div>
-            <li className='signin-btn'><SigninBtn /></li> */}
           </ul>
         </nav>
         <div className="menu-bg" id="menu-bg"></div>

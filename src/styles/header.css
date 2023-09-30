@@ -1,11 +1,13 @@
 .navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: transparent;
     position: absolute;
     padding: 0px 120px;
     height: 5rem;
     width: 100%;
+    overflow-x: clip;
 }
 
 .heading-cont {
@@ -28,12 +30,13 @@ a {
     display: none;
     align-items: center;
     position: relative;
+    height: 40px;
 }
 
 .navlist-1 {
     display: flex;
     font-size: 1.2rem;
-    height: 60%;
+    height: 100%;
     list-style-type: none;
     font-family: 'Inter', 'Times New Roman', Times, serif;
     z-index: 2;
@@ -76,8 +79,8 @@ a {
 .navlist-1-show{
     flex-flow: column;
     gap: 20px;
-    margin-top: 6rem;
-    margin-right: 2rem;
+    margin-top: 11rem;
+    margin-right: 2.5rem;
 }
 .navlist-1 a:hover{
     color: #ffffff;

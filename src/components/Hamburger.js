@@ -3,7 +3,7 @@ import '../styles/Hamburger.css';
 
 export default function Hamburger() {
   useEffect(() => {
-    const menu_bar = document.getElementById("menu-bar")
+    const menu_bar = document.getElementById("menu-icon")
     const nav = document.getElementById("navbar-nav")
     const navlist = document.getElementById("navlist-1")
     const menu_bg = document.getElementById("menu-bg")
@@ -19,14 +19,10 @@ export default function Hamburger() {
     }
   }, [])
   return (
-    <div className="btn-cont1">
-      <div id="menu">
-        <div id="menu-bar">
-          <div id="bar1" className="bar"></div>
-          <div id="bar2" className="bar"></div>
-          <div id="bar3" className="bar"></div>
-        </div>
-      </div>
+    <div id="menu-icon">
+      <div id="bar1" className="bar"></div>
+      <div id="bar2" className="bar"></div>
+      <div id="bar3" className="bar"></div>
     </div>
   );
 }

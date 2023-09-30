@@ -1,69 +1,11 @@
-/* .btn-cont1 {
+#menu-icon {
     position: relative;
-    background: transparent;
-    display: none;
+    display: flex;
+    flex-flow: column;
     justify-content: center;
-    align-items: center;
-    width: 50px;
-}
-
-.menu-btn {
-    position: relative;
-    width: 45px;
-    height: 45px;
-}
-.check{
-    position: absolute;
-    z-index: 999;
-    opacity: 0;
-    width: 45px;
-    height: 45px;
-}
-.menu-icon,
-.menu-icon::after,
-.menu-icon::before {
-    position: absolute;
-    top: 50%;
-    transform: translate(0%, -50%);
-    height: 3px;
-    width: 35px;
-    background-color: aliceblue;
-    transition: all 0.4s ease;
-}
-
-.menu-icon::after,
-.menu-icon::before {
-    content: '';
-}
-
-.menu-icon::before {
-    top: -9px;
-}
-
-.menu-icon::after {
-    top: 12px;
-}
-*/
-
-
-.btn-cont1 {
-    position: relative;
-    background: transparent;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-}
-
-
-#menu {
     z-index: 2;
-    top: 30px;
-}
-
-#menu-bar {
     width: 45px;
-    height: 40px;
+    height: 45px;
     cursor: pointer;
 }
 
@@ -84,17 +26,11 @@
     transform: translateY(4px);
 }
 
-.menu-bg,
-#menu {
-    position: absolute;
-}
-.menu-bg {
-    top: 0px;
-    right: 30px;
-}
 
 .menu-bg {
-    z-index: 1;
+    top: 0px;
+    right: 70px;
+    position: absolute;
     width: 0;
     height: 0;
     margin: 30px 0 20px 20px;
@@ -103,18 +39,13 @@
     transition: 0.3s ease;
 }
 
-.change {
-    display: block;
-    position: relative;
-    z-index: 3;
-}
 
 .change .bar {
     background-color: white;
 }
 
 .change #bar1 {
-    transform: translateY(4px) rotateZ(-45deg);
+    transform: translateY(4px) rotateZ(-225deg);
 }
 
 .change #bar2 {
@@ -122,29 +53,18 @@
 }
 
 .change #bar3 {
-    transform: translateY(-6px) rotateZ(45deg);
+    transform: translateY(-6px) rotateZ(225deg);
 }
 
 .change-bg {
-    width: 450px;
-    height: 367px;
+    width: 340px;
+    height: 300px;
     transform: translate(57%, -34%);
 }
 
-@media screen and (max-width:575px) {
-    .btn-cont1 {
-        display: flex;
-    }
-}
-
-@media screen and (min-width:576px) {
-    .btn-cont1 {
-        display: flex;
-    }
-}
 
 @media screen and (min-width:992px) {
-    .btn-cont1 {
+    #menu-icon {
         display: none;
     }
 }
