@@ -31,6 +31,8 @@ form>div{
 }
 .contact input, textarea{
   border: none;
+  color: aliceblue;
+  padding: 5px;
   border-radius: 3px;
   background-color: rgb(87, 87, 87);
 }
