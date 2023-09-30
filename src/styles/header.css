@@ -101,6 +101,9 @@ a {
     .overlay{
         display: none;
     }
+    .navlist-1-show{
+        margin-right: 1.5rem;
+    }
 
 }
 @media screen and (min-width:576px) {
